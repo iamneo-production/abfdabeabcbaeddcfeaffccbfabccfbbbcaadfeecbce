@@ -53,7 +53,7 @@ export class OrderBillingComponent implements OnInit,OnChanges {
      }) 
      const formdata ={
        menuItems : this.menuItem,
-       customerId:1,
+       customerId:JSON.parse(localStorage.getItem('userData'))['_id'],
        description:"new order",
        totalPrice:300,
        customerName:JSON.parse(localStorage.getItem('userData'))['name'],
