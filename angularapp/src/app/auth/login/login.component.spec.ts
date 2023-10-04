@@ -17,8 +17,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
-      imports: [HttpClientTestingModule,
-        ToastrModule.forRoot(),BrowserAnimationsModule,RouterTestingModule,ReactiveFormsModule,FormsModule],
+      imports: [HttpClientTestingModule,BrowserAnimationsModule,RouterTestingModule,ReactiveFormsModule,FormsModule],
       providers: [AdminflowserviceService]
     })
     .compileComponents();
