@@ -21,11 +21,20 @@ export class SelectTableComponent implements OnInit {
   loader=true
   selectedImage:boolean=false
   tableno
+  shouldDisplayOffersCode: boolean = false;
   BreverageVeg = [];
   constructor(public dialog: MatDialog,private router:Router,private servcie:AdminflowserviceService,private toster:ToastrService,private userService:UsersService) { }
-
+  todaysDate = new Date();
   ngOnInit(): void {
     this.selectTable()
+    // this.shouldDisplayOffersCode = !this.tableData.some(tables => [13, 14, 15, 16].includes(tables.tableNo));
+    // console.log(this.shouldDisplayOffersCode);
+   console.log(this.tableData)
+    let tablenum=this.tableData.forEach((ele)=>{
+       return ele
+    })
+    console.log(tablenum)
+
   //   this.tablenumberData=localStorage?.getItem('tableNumber') !== undefined ? JSON.parse(localStorage?.getItem('tableNumber')) : [];
   // console.log(this.tablenumberData);
 
@@ -73,6 +82,19 @@ export class SelectTableComponent implements OnInit {
 
 
           console.log(this.tableData,"tableData");
+          let tablenum=[]
+        this.tableData.forEach((ele)=>{
+          tablenum.push(ele.tableNo)
+          })
+         console.log(tablenum)
+
+         const numbersToCheck = [13, 14, 15, 16];
+
+         this.shouldDisplayOffersCode = numbersToCheck.some(number => tablenum.includes(number));
+
+         console.log(this.shouldDisplayOffersCode);
+          //  this.shouldDisplayOffersCode = !this.tableData.some(tables => tablenum.includes([13,14,15,16]));
+          //    console.log(this.shouldDisplayOffersCode);
 
           this.toster.success(res.message)
         }else{

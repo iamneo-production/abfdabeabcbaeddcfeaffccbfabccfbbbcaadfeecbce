@@ -46,11 +46,11 @@ export class OrderBillingComponent implements OnInit,OnChanges {
   }
 
   Proceed(){
-  
+
     if(localStorage.getItem("token")){
       this.KartItems.forEach((val)=>{
         this.menuItem.push(val._id)
-     }) 
+     })
      const formdata ={
        menuItems : this.menuItem,
        customerId:JSON.parse(localStorage.getItem('userData'))['_id'],

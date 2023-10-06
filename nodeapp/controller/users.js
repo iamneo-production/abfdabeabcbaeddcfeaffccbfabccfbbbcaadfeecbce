@@ -38,15 +38,21 @@ const register = async (req, res, next) => {
 
       const userData = await userModel.findOne({ email: email });
 
-      const { fullHash, otp } = createNewOTP(email);
-      await sendOTP(email, otp, name);
+      // const { fullHash, otp } = createNewOTP(email);
+      // await sendOTP(email, otp, name);
 
-      userData.hashedOTP = fullHash;
-      await userData.save();
+      // userData.hashedOTP = fullHash;
+      // await userData.save();
+
+      // res.status(200).json({
+      //   error: false,
+      //   message: `OTP sent to ${email}`,
+      //   data: null,
+      // });
 
       res.status(200).json({
         error: false,
-        message: `OTP sent to ${email}`,
+        message: `User Registration successfull`,
         data: null,
       });
     }
@@ -210,7 +216,7 @@ const getUserById = async (req, res, next) => {
         data: user,
       });
     } else {
-      res.json({
+      res.status(400).json({
         error: false,
         message: "User not found ",
       });
@@ -268,7 +274,7 @@ const editUserProfile = async (req, res, next) => {
         }
       );
     } else {
-      res.json({
+      res.status(400).json({
         error: false,
         message: "User not found ",
       });

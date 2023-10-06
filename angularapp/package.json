@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 8081 --disable-host-check --host=0.0.0.0",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -28,7 +28,6 @@
     "ng-otp-input": "^1.8.1",
     "ngx-mat-timepicker": "^10.0.4",
     "ngx-toastr": "^13.2.1",
-    "puppeteer": "^21.3.6",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

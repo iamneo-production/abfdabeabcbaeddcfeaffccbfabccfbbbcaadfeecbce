@@ -14,7 +14,7 @@
             <div class="form">
               <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="form-group mt-3">
-                  <label class="d-block">Full Name</label>
+                  <label class="d-block">Full Name <sup class="text-danger">*</sup></label>
                   <div class="position-relative">
                   <input class="input" type="text" placeholder="Name" formControlName="name">
                   <div class="icon">
@@ -30,7 +30,7 @@
                 </div>
                 </div>
                 <div class="form-group mt-3">
-                  <label class="d-block">Email</label>
+                  <label class="d-block">Email <sup class="text-danger">*</sup></label>
                   <div class="position-relative">
                   <input class="input" type="text" placeholder="example@gmail.com" formControlName="email" >
                   <div class="icon">
@@ -46,23 +46,23 @@
                   </div>
                 </div>
                 <div class="form-group mt-3">
-                  <label class="d-block">Phone No.</label>
+                  <label class="d-block">Phone Number <sup class="text-danger">*</sup></label>
                   <div class="position-relative">
-                  <input class="input" type="text" placeholder="9654645671" formControlName="phoneNo">
+                  <input class="input" type="text" placeholder="9654645671" formControlName="phoneNo" required>
                   <div class="icon">
                     <img src="../../../assets/mailicon.svg" class="pe-2" alt="">
                     <span class="line"></span>
                   </div>
                   <div
                   *ngIf="(registerFormControl.phoneNo.touched || submitted) && registerFormControl.phoneNo.errors?.required">
-                  <p class="text-danger">phoneNo is required</p>
+                  <p class="text-danger">phone number is required</p>
                 </div>
-                <p *ngIf="registerFormControl.phoneNo.touched && registerFormControl.phoneNo.errors?.pattern"
-                  class="text-danger">This is invalid phoneNo!</p>
+                <p *ngIf="registerFormControl.phoneNo.touched && registerFormControl.phoneNo.errors?.maxlength"
+                  class="text-danger">This is invalid phone number!</p>
                   </div>
                 </div>
                 <div class="form-group mt-3">
-                  <label class="d-block">Password</label>
+                  <label class="d-block">Password <sup class="text-danger">*</sup></label>
                   <div class="position-relative">
                   <input class="input" type="{{ isPasswordVisible ? 'text' : 'password' }}" placeholder="********" formControlName="password">
                   <div class="icon">
@@ -81,7 +81,7 @@
                   </div>
                 </div>
                 <div class="form-group mt-3">
-                  <label class="d-block">Role</label>
+                  <label class="d-block">Role <sup class="text-danger">*</sup></label>
                   <mat-radio-group aria-label="Select an option" formControlName="role">
                     <mat-radio-button value="user">User</mat-radio-button>
                     <mat-radio-button class="ms-4" value="admin">Admin</mat-radio-button>

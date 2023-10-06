@@ -15,7 +15,7 @@ import { AdminflowserviceService } from 'src/app/Services/adminflowservice.servi
   styleUrls: ['./payments.component.scss']
 })
 export class PaymentsComponent implements OnInit {
-  displayedColumns: string[] = ['Name', 'Email', 'PhNo', 'LastSpent', 'Status'];
+  displayedColumns: string[] = ['Name', 'Email', 'PhNo', 'Spent', 'Status'];
   // dataSource;
   error;
   getPaymentResult
@@ -49,13 +49,14 @@ export class PaymentsComponent implements OnInit {
      this.service.getPayment().subscribe((res)=>{
        if(!res['error']){
         this.getPaymentResult = res['data']
-        const data = res['data'].map(res=>{
-          this.service.getPaymentByEmail(res['email']).subscribe(list=>{
-            res['LastSpent'] = list['data'][list['data'].length-1].totalPrice
+        // const data = res['data'].map(res=>{
+        //   this.service.getPaymentByEmail(res['email']).subscribe(list=>{
+        //     res['LastSpent'] = list['data'][list['data'].length-1].totalPrice
 
-          })
-          return res
-        })
+        //   })
+        //   return res
+        // })
+        const data = this.getPaymentResult;
         let count = 0
         this.getPaymentResult.forEach(element => {
           count = count+element['totalPrice']

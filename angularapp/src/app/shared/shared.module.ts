@@ -15,6 +15,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
 import { MatSortModule } from '@angular/material/sort';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [],
   imports: [
@@ -32,7 +33,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatDialogModule,
     NgxMatTimepickerModule,
-    MatSortModule
+    MatSortModule,
+    MatDatepickerModule
   ],
   exports:[
     CommonModule,
@@ -44,7 +46,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatRadioModule,
     MatTabsModule,
     NgbRatingModule,
-
+    MatDatepickerModule,
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,

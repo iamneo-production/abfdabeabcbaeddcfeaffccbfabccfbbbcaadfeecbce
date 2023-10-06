@@ -18,7 +18,7 @@ describe("User module registration API testing", () => {
   });
 
   test("Week9_Day4_Edit_user_detail ", async () => {
-    let id = "650fee10b4f21fc49bf09ac2"
+    let id = "6515f2e7aba87b8dbe334fe9"
     const response = await request("http://localhost:8080")
       .put(`/user/editUser/${id}`)
       .send({
@@ -33,7 +33,7 @@ describe("User module registration API testing", () => {
   });
 
   test("Week9_Day5_Get_user_profile_by_id", async () => {
-    let id = "650fee10b4f21fc49bf09ac2"
+    let id = "6515f2e7aba87b8dbe334fe9"
 
     const response = await request("http://localhost:8080").get(
       `/user/getUser/${id}`

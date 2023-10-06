@@ -11,15 +11,13 @@
                   <small class="tableno" [ngStyle]="{'color':tables.selected? 'white':'black'}"
                     #selecttablenumber>T{{tables.tableNo}}</small>
                   <img *ngIf="!tables.booked===true && tables.alloted===true"
-                    [src]="!tables.selected?table1occupiedImage[0]:table1occupiedImage[1]"
-                    (click)="selectTableNumber(tables)">
+                    [src]="!tables.selected?table1occupiedImage[0]:table1occupiedImage[1]">
                   <img *ngIf="!tables.booked===true && tables.alloted===false"
                     [src]="!tables.selected?table1vaccantImage[1]:table1vaccantImage[0]"
-                    (click)="selectTableNumber(tables)">
+                    (click)="selectTableNumber(tables)" style="cursor: pointer;">
                   <img
                     *ngIf="(!tables.booked===false && tables.alloted===false) || (!tables.booked===false && tables.alloted===true) "
-                    [src]="!tables.selected?table1bookedImage[1]:table1bookedImage[0]"
-                    (click)="selectTableNumber(tables)">
+                    [src]="!tables.selected?table1bookedImage[1]:table1bookedImage[0]">
 
                   <div class="table-details">
                     <div class="booked text-start" *ngIf="!tables.booked===false">
@@ -73,7 +71,7 @@
                     [src]="!selectedImage?table2occupiedImage[1]:table2occupiedImage[0]">
                   <img class="mb-2" *ngIf="!tables.booked===true && tables.alloted===false"
                     [src]="tables.selected === true?table2vaccantImage[0]:table2vaccantImage[1]"
-                    (click)="selectTableNumber(tables)">
+                    (click)="selectTableNumber(tables)" style="cursor: pointer;">
                   <img class="mb-2" *ngIf="!tables.booked===false"
                     [src]="!selectedImage?table2bookedImage[1]:table2bookedImage[0]">
                   <div class="table-details">
@@ -102,12 +100,12 @@
 
                   <small class="tableno" #selecttablenumber
                     [ngStyle]="{'color':tables.selected? 'white':'black'}">T{{tables.tableNo}}</small>
-                  <img class="mb-2" *ngIf="!tables.booked===true && tables.alloted===true"
+                  <img class="" *ngIf="!tables.booked===true && tables.alloted===true"
                     [src]="!tables.selected?table3occupiedImage[1]:table3occupiedImage[0]">
-                  <img class="mb-2" *ngIf="!tables.booked===true && tables.alloted===false"
+                  <img class="" *ngIf="!tables.booked===true && tables.alloted===false"
                     [src]="!tables.selected?table3vaccantImage[1]:table3occupiedImage[0]"
-                    (click)="selectTableNumber(tables)">
-                  <img class="mb-2" *ngIf="!tables.booked===false"
+                    (click)="selectTableNumber(tables)" style="cursor: pointer;">
+                  <img  *ngIf="!tables.booked===false"
                     [src]="!tables.selected?table3bookedImage[1]:table3bookedImage[0]">
                   <div class="table-details">
                     <div class="booked text-start" *ngIf="!tables.booked===false">
@@ -135,13 +133,13 @@
           <div class="col d-flex flex-column align-items-center">
             <div *ngFor="let tables of tableData">
               <div *ngIf="tables.tableNo===10 || tables.tableNo===11 || tables.tableNo===12">
-                <div class="table10 position-relative" style="z-index: 0;">
+                <div class="table1 position-relative" style="z-index: 0;">
                   <small class="tableno" [ngStyle]="{'color':tables.selected? 'white':'black'}"
                     #selecttablenumber>T{{tables.tableNo}}</small>
-                  <img *ngIf="!tables.booked===true && tables.alloted===true" [src]="table1occupiedImage">
-                  <img *ngIf="!tables.booked===true && tables.alloted===false" [src]="table1vaccantImage"
-                    (click)="selectTableNumber(tables)">
-                  <img *ngIf="!tables.booked===false" [src]="table1bookedImage">
+                  <img *ngIf="!tables.booked===true && tables.alloted===true"  [src]="!tables.selected?table1occupiedImage[1]:table1occupiedImage[0]">
+                  <img *ngIf="!tables.booked===true && tables.alloted===false" [src]="!tables.selected?table1vaccantImage[1]:table1vaccantImage[0]"
+                    (click)="selectTableNumber(tables)" style="cursor: pointer;">
+                  <img *ngIf="!tables.booked===false" [src]="!tables.selected?table1bookedImage[1]:table1bookedImage[0]">
                   <div class="table-details">
                     <div class="booked text-start" *ngIf="!tables.booked===false">
                       <small class="d-block"></small>
@@ -163,15 +161,45 @@
           </div>
 
           <div class="col d-flex flex-column align-items-center">
+            <ng-container *ngIf="!shouldDisplayOffersCode">
+              <div class="offer w-90">
+
+                    <div class="card flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <div class="card-offer">
+                            <h3 class="mb-0">20% off</h3>
+                          </div>
+                          <img src="../../../assets/food.jpeg" class="mt-4 w-100">
+                          <div class="col-md-12 d-flex justify-content-center">
+                            <h3 class="m-0 text-bold">
+                              Pani Puri
+                            </h3>
+                          </div>
+                          <div class="col-md-12">
+                            <p class="item-discription m-0">
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, consequatur! Illum quia
+                              distinctio, nulla consectetur aperiam doloribus, facilis minima, adipisci optio maxime
+                              repudiandae? Cum iusto delectus neque, nobis obcaecati aperiam!
+                            </p>
+                            <p class="item-price text-center m-0">
+                              <span>₹20</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </ng-container>
             <div class="w-100" *ngFor="let tables of tableData  index as i">
               <div *ngIf="tables.tableNo===13 || tables.tableNo===14 || tables.tableNo===15 || tables.tableNo===16">
-                <div class="table10 position-relative" style="z-index: 0;">
+                <div class="table6 position-relative" style="z-index: 0;">
                   <small class="tableno" [ngStyle]="{'color':tables.selected? 'white':'black'}"
                     #selecttablenumber>T{{tables.tableNo}}</small>
-                  <img *ngIf="!tables.booked===true && tables.alloted===true" [src]="table3occupiedImage">
-                  <img *ngIf="!tables.booked===true && tables.alloted===false" [src]="table3vaccantImage"
-                    (click)="selectTableNumber(tables)">
-                  <img *ngIf="!tables.booked===false" [src]="table3bookedImage">
+                  <img *ngIf="!tables.booked===true && tables.alloted===true" [src]="!tables.selected?table3occupiedImage[1]:table3occupiedImage[0]" >
+                  <img *ngIf="!tables.booked===true && tables.alloted===false" [src]="!tables.selected?table3vaccantImage[1]:table3vaccantImage[0]"
+                    (click)="selectTableNumber(tables)" style="cursor: pointer;">
+                  <img *ngIf="!tables.booked===false" [src]="!tables.selected?table3bookedImage[1]:table3bookedImage[0]">
                   <div class="table-details">
                     <div class="booked text-start" *ngIf="!tables.booked===false">
                       <small class="d-block"></small>
@@ -190,37 +218,7 @@
                 </div>
               </div>
 
-              <div
-                *ngIf="tables.tableNo!==13 && tables.tableNo!==14 && tables.tableNo!==15 && tables.tableNo!==16 && i==0">
-                <div class="offer">
-                  <div class="card flip-card">
-                    <div class="flip-card-inner">
-                      <div class="flip-card-front">
-                        <div class="card-offer">
-                          <h3 class="mb-0">20% off</h3>
-                        </div>
-                        <img src="../../../assets/food.jpeg" class="mt-4 w-100">
-                        <div class="col-md-12 d-flex justify-content-center">
-                          <h3 class="m-0 text-bold">
-                            Pani Puri
-                          </h3>
-                        </div>
-                        <div class="col-md-12">
-                          <p class="item-discription m-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, consequatur! Illum quia
-                            distinctio, nulla consectetur aperiam doloribus, facilis minima, adipisci optio maxime
-                            repudiandae? Cum iusto delectus neque, nobis obcaecati aperiam!
-                          </p>
-                          <p class="item-price text-center m-0">
-                            <span>₹20</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-              </div>
             </div>
           </div>
 

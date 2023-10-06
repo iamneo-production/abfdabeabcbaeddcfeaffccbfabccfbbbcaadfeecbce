@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.table6 img,.table7 img, .table8 img,.table9 img,.table13 img,.table14 img,.table15 img{
+.table6 img{
   margin-bottom: 1.54rem;
   position: relative;
 }
@@ -12,6 +12,7 @@
  border: none;
  box-shadow: 0px 0px 4px lightgray;
  margin-bottom: 10px;
+ overflow-x: hidden;
 }
 .select-table-card::-webkit-scrollbar, .tables::-webkit-scrollbar{
   display: none;
@@ -63,13 +64,10 @@ margin-left: 15px;
     margin-left: 12px;
 }
 .table6 .table-details,.table7 .table-details, .table8 .table-details,.table9 .table-details,.table13 .table-details,.table14 .table-details,.table15 .table-details,.table16 .table-details{
-  bottom: 20px;
+  bottom: 32px;
   margin-left: 15px;
 }
 
-img{
-  cursor: pointer;
-}
 .offer{
   width: 100%;
   box-shadow: 0px 0px 3px lightgray;

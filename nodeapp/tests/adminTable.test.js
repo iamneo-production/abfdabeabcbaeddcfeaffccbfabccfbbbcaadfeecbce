@@ -27,6 +27,7 @@ describe("POST /restaurant/addTable", () => {
       alloted: true,
       isAvailable: false,
       served: true,
+      booked:false
     };
     const response = await request("http://localhost:8080")
       .post("/restaurant/addTable")

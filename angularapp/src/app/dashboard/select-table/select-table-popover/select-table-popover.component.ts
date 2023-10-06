@@ -12,7 +12,7 @@ import { UsersService } from 'src/app/Services/users.service';
   styleUrls: ['./select-table-popover.component.scss']
 })
 export class SelectTablePopoverComponent implements OnInit {
-date='';
+// date='';
 maxtime
 mintime
 enableTimePicker:boolean=false
@@ -22,7 +22,10 @@ selecttoday:boolean=false
 selecttmrw:boolean=false
 dateTimeValue
 receivedData
+currentDate: string = new Date().toISOString().split('T')[0];
 
+
+  date: string = this.currentDate;
   constructor(private router:Router, private service:UsersService,private toastr:ToastrService,private AdminSerive:AdminflowserviceService,
     public dialogRef: MatDialogRef<SelectTablePopoverComponent>,
     ) { }
@@ -32,21 +35,28 @@ receivedData
       this.receivedData = data;
     });
   }
-  handleDate(date){
-    if(date=='today'){
-      this.selecttoday =true
-      this.selecttmrw = false
-      this.date = new Date().toLocaleString().split(',')[0]
+  handleDate(){
+    if (this.date < this.currentDate) {
+      // Reset the date to the current date if it's invalid
+      this.date = this.currentDate;
     }
-    if(date=='tomorrow'){
-      this.selecttmrw = true
-      this.selecttoday =false
-      var today = new Date();
-      var tomorrow = new Date(today);
-      tomorrow.setDate(today.getDate() + 1);
-      this.date = tomorrow.toLocaleString().split(',')[0];
+    console.log(this.date)
+    // if(date=='today'){
+    //   this.selecttoday =true
+    //   this.selecttmrw = false
+    //   // this.date = new Date().toLocaleString().split(',')[0];
 
-    }
+    //   console.log(event);
+    // }
+    // if(date=='tomorrow'){
+    //   this.selecttmrw = true
+    //   this.selecttoday =false
+    //   var today = new Date();
+    //   var tomorrow = new Date(today);
+    //   tomorrow.setDate(today.getDate() + 1);
+    //   this.date = tomorrow.toLocaleString().split(',')[0];
+
+    // }
   }
   handleTime(time){
     this.enableTimePicker =true

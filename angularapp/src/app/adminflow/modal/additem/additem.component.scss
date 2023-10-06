@@ -88,6 +88,13 @@
 .foodimg{
   width:20%;
 }
+button:disabled{
+  cursor: none;
+}
+.imageerror{
+  position: absolute;
+  top: 140px;
+}
 @media only screen and (max-width:1024px){
   .foodimg{
     width:25%;

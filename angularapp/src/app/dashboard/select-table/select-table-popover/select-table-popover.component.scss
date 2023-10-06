@@ -18,10 +18,14 @@
     background-color: #164646;
 }
 :host::ng-deep.mat-form-field-wrapper{
-    width: 175px;
+    width: 100%;
 }
 .time-input{
     display: flex !important;
     justify-content: start !important;
     margin-left: 2em !important;
+}
+.btnn{
+  width: 50%;
+    margin-top: 30px;
 }

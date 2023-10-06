@@ -9,7 +9,9 @@
   </div>
   <form [formGroup]="addMenuForm">
     <div class="container-fluid p-2 modal-body">
+      <label>Images List <sup class="text-danger">*</sup></label>
       <div class="images position-relative d-flex  align-items-center mt-2 mb-2 justify-content-start"  >
+
         <div class="p-3 position-relative foodimg" *ngFor="let item of foodImg" >
           <img [src]="item.path" alt="" class="dishImg w-100" (click)="selectItem(item)">
           <input type="text" style="visibility: hidden;" [value]="item.path"
@@ -17,6 +19,9 @@
           >
           <i  [ngClass]="item.selected?'d-block':'d-none'" class="fa fa-check-circle check-icon" aria-hidden="true" style="font-size: 24px;"></i>
         </div>
+      </div>
+      <div class="imageerror" *ngIf="sumbit && addMenuForm.get('selectedImages').hasError('noImagesSelected')">
+        <small class="text-danger">select at least one image.</small>
       </div>
       <div class="row">
         <div class="form-group ">
@@ -65,15 +70,15 @@
             <mat-error class="mt-2" *ngIf="addMenuForm.controls.price.errors?.pattern">Price is invalid.</mat-error>
           </mat-form-field>
         </div>
-        <div class="form-group ">
+        <!-- <div class="form-group ">
           <input type="checkbox"> Mark as Special item
-        </div>
+        </div> -->
       </div>
 
     </div>
     <div class="modal-footer d-flex justify-content-center">
       <div class="w-75">
-        <button class="submitbtn btn" (click)="handleItemAdd()" id="submitbtn">Add</button>
+        <button class="submitbtn btn"  (click)="handleItemAdd()" id="submitbtn">Add</button>
       </div>
     </div>
 

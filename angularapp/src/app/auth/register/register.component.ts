@@ -41,9 +41,9 @@ togglePasswordVisibility() {
     this.service.sendmailtoOtp(this.registerForm.get('email').value);
    this.service.register(this.registerForm.value).subscribe((res)=>{
     if(!res.error){
-      this.toastr.success(res.message)
+      this.toastr.success("Registration Successful")
      this.registerForm.reset()
-      this.router.navigate(['/otp'])
+      this.router.navigate(['/login'])
     }else {
       this.toastr.error(res.message);
     }

@@ -7,20 +7,22 @@
       <i class="fa fa-times" aria-hidden="true" mat-dialog-close></i>
     </div>
     </div>
-    <div class="container-fluid">
-        <div class="row col-md-10" >
-            <div class="col-md-3 select_date_btn" (click)="handleDate('today')" [class]="selecttoday?'select_date_btn_focused':''" >
+    <div class="container-fluid mt-4">
+
+      <div class="col-md-12">
+        <mat-form-field class="example-full-width" class="w-100">
+            <mat-label>Date</mat-label>
+            <input type="date" [(ngModel)]="date" (change)="handleDate()"  [min]="currentDate"  matInput placeholder="YYYY/MM/DD" [value]="date" >
+          </mat-form-field>
+    </div>
+        <div class="row" >
+            <!-- <div class="col-md-3 select_date_btn" (click)="handleDate('today')" [class]="selecttoday?'select_date_btn_focused':''" >
                 <span >Today</span>
             </div>
             <div class="col-md-3 select_date_btn" [class]="selecttmrw?'select_date_btn_focused':''" >
                 <span (click)="handleDate('tomorrow')" >Tomorrow</span>
-            </div>
-            <div class="col-md-4">
-                <mat-form-field class="example-full-width">
-                    <mat-label>Date</mat-label>
-                    <input matInput placeholder="YYYY/MM/DD" [value]="date" readonly>
-                  </mat-form-field>
-            </div>
+            </div> -->
+
         </div>
         <div class="row col-md-10">
             <div class="col-md-3 " (click)="handleTime('lunch')">
@@ -30,7 +32,7 @@
                 <button class=" select_date_btn btn" [class]="selectDateDinner?'select_date_btn_focused':''" (click)="handleTime('dinner')">Dinner</button>
             </div>
             <ng-container *ngIf="enableTimePicker">
-                <div class="col-md-3 time-input">
+                <div class="col-md-5 time-input">
                     <!-- <mat-form-field>
                         <input matInput
                         [max]="maxtime"

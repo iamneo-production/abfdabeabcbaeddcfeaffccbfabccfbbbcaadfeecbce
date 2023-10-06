@@ -25,7 +25,7 @@ error
    }
 
   ngOnInit(): void {
-    
+
     this.getMenuList();
 
   }
@@ -45,13 +45,14 @@ error
     })
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.getMenuList()
     });
   }
   getMenuList(){
     this.service.getAllMenu().subscribe(res=>{
       if(!res['error']){
        this.dataSource.data= res['data'].map(ele=>{
-          
+
           if(ele['status']=='available'){
             ele['isSelected']=true;
           }else{
@@ -69,7 +70,7 @@ error
       this.toastr.error(err.error.detail)
     })
   }
- 
+
   handleAvailablity(row){
     row.isSelected =!row.isSelected;
     const data = {
